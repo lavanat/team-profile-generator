@@ -1,8 +1,9 @@
 const inquirer = require("inquirer");
+const fs = require('fs');
 const Manager = require('./lib/Manager');
 const Engineer = require('./lib/Engineer');
 const Intern = require('./lib/Intern');
-const htmlBody = ``;
+var htmlBody = ``;
 
 const managerQs = [
     {
@@ -83,6 +84,7 @@ const menuQ = [
 ];
 
 const addManager = () => {
+    console.log("----------\nFirst, let's add a team manager!\n----------")
     inquirer
   .prompt(managerQs)
   .then((answers) => {
@@ -102,6 +104,7 @@ const addManager = () => {
 };
 
 const addEngineer = () => {
+    console.log("----------\nLet's add an engineer!\n----------")
     inquirer
   .prompt(EngineerQs)
   .then((answers) => {
@@ -122,6 +125,7 @@ const addEngineer = () => {
 };
 
 const addIntern = () => {
+    console.log("----------\nLet's add an intern!\n----------")
     inquirer
   .prompt(InternQs)
   .then((answers) => {
@@ -141,6 +145,7 @@ const addIntern = () => {
 };
 
 const mainMenu = () => {
+    console.log("----------\n")
     inquirer
     .prompt(menuQ)
     .then((answers) => {
@@ -155,7 +160,7 @@ const mainMenu = () => {
                 createHTML(htmlBody);
         }
     });
-}
+};
 
 const createHTML = (htmlBody) => {
     const htmlContent = `<!DOCTYPE html>
@@ -175,10 +180,17 @@ const createHTML = (htmlBody) => {
     </body>
     </html>`;
     writeToFile("./dist/index.html", htmlContent);
-}
+};
 
 const writeToFile = (fileName, data) => {
     fs.writeFile(fileName, data, (err) =>
       err ? console.log(err) : console.log('Successfully created HTML! Launch the index.html file in the dist folder to view.')
     );
-}
+};
+
+const init = () => {
+    console.log("----------\nWelcome to the Team Profile Generator! Add your team members here to create your website.")
+    addManager();
+};
+
+init();
