@@ -90,11 +90,11 @@ const addManager = () => {
   .then((answers) => {
     const manager = new Manager(answers.name, answers.id, answers.email, answers.number);
     const managerHTML = `
-    <div class="card" style="width: 18rem;">
+    <div class="card bg-light col-6 col-md-4" style="width: 28rem; margin:5px;">
         <div class="card-body">
-            <h5 class="card-title">${manager.getName()}</h5>
-            <h6 class="card-subtitle mb-2 text-muted">${manager.getRole()}</h6>
-            <p class="card-text">Their Employee ID is ${manager.getId()} and their office number is ${manager.number}. </p>
+            <h5 class="card-title" style="font-size:32px">${manager.getName()}</h5>
+            <h6 class="card-subtitle mb-2 text-muted" style="font-size:24px">${manager.getRole()}</h6>
+            <p class="card-text" style="font-size:20px">Their Employee ID is ${manager.getId()}. <br> Their office number is ${manager.number}. </p>
             <a href="mailto: ${manager.getEmail()}" class="card-link">Email</a>
         </div>
     </div>`;
@@ -110,11 +110,11 @@ const addEngineer = () => {
   .then((answers) => {
     const engineer = new Engineer(answers.name, answers.id, answers.email, answers.github);
     const engineerHTML = `
-    <div class="card" style="width: 18rem;">
+    <div class="card bg-light col-6 col-md-4" style="width: 28rem; margin:5px;">
         <div class="card-body">
-            <h5 class="card-title">${engineer.getName()}</h5>
-            <h6 class="card-subtitle mb-2 text-muted">${engineer.getRole()}</h6>
-            <p class="card-text">Their Employee ID is ${engineer.getId()}. </p>
+            <h5 class="card-title" style="font-size:32px">${engineer.getName()}</h5>
+            <h6 class="card-subtitle mb-2 text-muted" style="font-size:24px">${engineer.getRole()}</h6>
+            <p class="card-text" style="font-size:20px">Their Employee ID is ${engineer.getId()}. </p>
             <a href="mailto: ${engineer.getEmail()}" class="card-link">Email</a>
             <a href="${engineer.getGithub()}" class="card-link">GitHub</a>
         </div>
@@ -131,11 +131,11 @@ const addIntern = () => {
   .then((answers) => {
     const intern = new Intern(answers.name, answers.id, answers.email, answers.school);
     const internHTML =`
-    <div class="card" style="width: 18rem;">
+    <div class="card bg-light col-6 col-md-4" style="width: 28rem; margin:5px;">
         <div class="card-body">
-            <h5 class="card-title">${intern.getName()}</h5>
-            <h6 class="card-subtitle mb-2 text-muted">${intern.getRole()}</h6>
-            <p class="card-text">Their Employee ID is ${intern.getId()} and they go to ${intern.getSchool()}. </p>
+            <h5 class="card-title" style="font-size:32px">${intern.getName()}</h5>
+            <h6 class="card-subtitle mb-2 text-muted" style="font-size:24px">${intern.getRole()}</h6>
+            <p class="card-text" style="font-size:20px">Their Employee ID is ${intern.getId()}. <br> They go to ${intern.getSchool()}. </p>
             <a href="mailto: ${intern.getEmail()}" class="card-link">Email</a>
         </div>
     </div>`;
@@ -173,10 +173,15 @@ const createHTML = (htmlBody) => {
         <title>Document</title>
     </head>
     <body>
-        <header>
-            <h1>My Team</h1>
+        <header class="container-fluid text-center" style="margin-bottom: 20px;">
+            <h1 style="font-size:5vw">My Team</h1>
         </header>
-        ${htmlBody}
+        <div class="container justify-content-center">   
+            <div class="row justify-content-center"> 
+                ${htmlBody}
+        
+            </div>
+        </div> 
     </body>
     </html>`;
     writeToFile("./dist/index.html", htmlContent);
