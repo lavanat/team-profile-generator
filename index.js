@@ -94,7 +94,7 @@ const addManager = () => {
         <div class="card-body">
             <h5 class="card-title" style="font-size:32px">${manager.getName()}</h5>
             <h6 class="card-subtitle mb-2 text-muted" style="font-size:24px">${manager.getRole()}</h6>
-            <p class="card-text" style="font-size:20px">Their Employee ID is ${manager.getId()}. <br> Their office number is ${manager.number}. </p>
+            <p class="card-text" style="font-size:20px">Their Employee ID is ${manager.getId()}. <br> Their office number is ${manager.getNumber()}. </p>
             <a href="mailto: ${manager.getEmail()}" class="card-link" style="font-size:20px">Email</a>
         </div>
     </div>`;
