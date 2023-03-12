@@ -184,12 +184,12 @@ const createHTML = (htmlBody) => {
         </div> 
     </body>
     </html>`;
-    writeToFile("./dist/index.html", htmlContent);
+    writeToFile("./dist/team.html", htmlContent);
 };
 
 const writeToFile = (fileName, data) => {
     fs.writeFile(fileName, data, (err) =>
-      err ? console.log(err) : console.log('Successfully created HTML! Launch the index.html file in the dist folder to view.')
+      err ? console.log(err) : console.log('Successfully created HTML! Launch the team.html file in the dist folder to view.')
     );
 };
 
